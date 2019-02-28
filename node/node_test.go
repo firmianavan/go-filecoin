@@ -7,6 +7,8 @@ import (
 	"testing"
 	"time"
 
+	"gx/ipfs/QmRhFARzTHcFh8wUxwN5KvyTGq73FLC65EfFAhz8Ng7aGb/go-libp2p-peerstore"
+
 	"github.com/filecoin-project/go-filecoin/address"
 	"github.com/filecoin-project/go-filecoin/chain"
 	"github.com/filecoin-project/go-filecoin/config"
@@ -446,7 +448,7 @@ func TestNode_getMinerOwnerPubKey(t *testing.T) {
 	assert.NoError(t, err)
 	assert.Nil(t, pkey)
 
-	err = tnode.saveMinerConfig(minerOwnerAddr, address.Address{})
+	err = tnode.PorcelainAPI.ConfigSet("mining.minerAddress", minerOwnerAddr.String())
 	assert.NoError(t, err)
 
 	pkey, err = tnode.getMinerActorPubKey()
