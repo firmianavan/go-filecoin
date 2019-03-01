@@ -10,7 +10,6 @@ type API interface {
 	Dag() Dag
 	ID() ID
 	Log() Log
-	Miner() Miner
 	Mining() Mining
 	Ping() Ping
 	RetrievalClient() RetrievalClient
