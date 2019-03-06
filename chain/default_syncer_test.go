@@ -51,8 +51,8 @@ var (
 )
 
 func init() {
-	minerAddress = address.MakeTestAddress("miner")
-	minerOwnerAddress = address.MakeTestAddress("minerOwner")
+	minerAddress = address.NewActorAddress([]byte("miner"))
+	minerOwnerAddress = address.NewActorAddress([]byte("minerOwner"))
 	minerPeerID = testhelpers.RequireRandomPeerID()
 
 	// Set up the test chain
