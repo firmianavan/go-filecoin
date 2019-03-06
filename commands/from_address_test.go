@@ -21,9 +21,7 @@ func TestOptionalAddr(t *testing.T) {
 
 		opts := make(cmdkit.OptMap)
 
-		hash := address.Hash([]byte("a new test address"))
-
-		specifiedAddr := address.NewMainnet(hash)
+		specifiedAddr := address.NewActorAddress([]byte("a new test address"))
 		opts["from"] = specifiedAddr.String()
 
 		addr, err := optionalAddr(opts["from"])

@@ -30,7 +30,7 @@ func TestMessageSend(t *testing.T) {
 
 	t.Log("[failure] invalid target")
 	d.RunFail(
-		"invalid checksum",
+		"invalid network prefix",
 		"message", "send",
 		"--from", fixtures.TestAddresses[0],
 		"--price", "0", "--limit", "300",
