@@ -16,6 +16,7 @@ func init() {
 	cbor.RegisterCborType(SignedDealProposal{})
 	cbor.RegisterCborType(ProofInfo{})
 	cbor.RegisterCborType(QueryRequest{})
+	cbor.RegisterCborType(Deal{})
 }
 
 // PaymentInfo contains all the payment related information for a storage deal.

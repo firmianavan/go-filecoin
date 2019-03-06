@@ -12,7 +12,6 @@ import (
 	"gx/ipfs/QmVmDhyTTUcQXFD1rRQ64fGLMSAoaQvNH3hwuaCFAPq2hy/errors"
 	"gx/ipfs/QmZNkThpqfVXs9GNbexPrfBbXSLNYeKrE7jwFM2oqHbyqN/go-libp2p-protocol"
 	"gx/ipfs/QmabLh8TrJ3emfAoQk5AbqbLTbMyj7XqumMFmAFxa9epo8/go-multistream"
-	cbor "gx/ipfs/QmcZLyosDwMKdB6NLRsiss9HXzDPhVhhRtPy67JFKTDQDX/go-ipld-cbor"
 	"gx/ipfs/Qmd52WKRSwrBK5gUaJKawryZQ5by6UbNB8KVW2Zy6JtbyW/go-libp2p-host"
 
 	"github.com/filecoin-project/go-filecoin/actor/builtin/miner"
@@ -73,10 +72,6 @@ type clientPorcelainAPI interface {
 type Client struct {
 	node clientNode
 	api  clientPorcelainAPI
-}
-
-func init() {
-	cbor.RegisterCborType(storagedeal.Deal{})
 }
 
 // NewClient creates a new storage client.
