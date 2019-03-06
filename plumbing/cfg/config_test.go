@@ -127,7 +127,7 @@ func TestConfigSet(t *testing.T) {
 		// bad address
 		jsonBlobBadAddr := "fcqnyc0muxjajygqavu645m8ja04vckk2kcorrupt"
 		err = cfgAPI.Set("wallet.defaultAddress", jsonBlobBadAddr)
-		assert.EqualError(err, "invalid character")
+		assert.EqualError(err, "invalid protocol")
 	})
 
 	t.Run("validates the node nickname", func(t *testing.T) {
