@@ -53,7 +53,7 @@ func (store *Store) Put(storageDeal *storagedeal.Deal) error {
 	key := datastore.KeyWithNamespaces([]string{StorageDealPrefix, proposalCid.String()})
 	err = store.dealsDs.Put(key, datum)
 	if err != nil {
-		return errors.Wrap(err, "could not save client deal to disk, in-memory deals differ from persisted deals!")
+		return errors.Wrap(err, "could not save storage deal to disk")
 	}
 
 	return nil
