@@ -69,7 +69,7 @@ func (b *Builder) Build() Harness {
 	memRepo := repo.NewInMemoryRepoWithSectorDirectories(b.stagingDir, b.sealedDir)
 	blockStore := bstore.NewBlockstore(memRepo.Datastore())
 	blockService := bserv.New(blockStore, offline.Exchange(blockStore))
-	minerAddr := address.MakeTestAddress("wombat")
+	minerAddr := address.NewActorAddress([]byte("wombat"))
 
 	// TODO: Replace this with proofs.Live plus a sector size (in this case,
 	// "small" or 127 (bytes).
