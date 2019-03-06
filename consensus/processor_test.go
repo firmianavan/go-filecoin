@@ -121,7 +121,7 @@ func TestProcessTipSetSuccess(t *testing.T) {
 	})
 
 	vms := th.VMStorage()
-	minerOwner := address.MakeTestAddress("mo")
+	minerOwner := address.NewActorAddress([]byte("mo"))
 	stCid, miner := mustCreateMiner(ctx, require, st, vms, minerAddr, minerOwner)
 
 	msg1 := types.NewMessage(fromAddr1, toAddr, 0, types.NewAttoFILFromFIL(550), "", nil)
@@ -189,7 +189,7 @@ func TestProcessTipsConflicts(t *testing.T) {
 	})
 
 	vms := th.VMStorage()
-	minerOwner := address.MakeTestAddress("mo")
+	minerOwner := address.NewActorAddress([]byte("mo"))
 	stCid, miner := mustCreateMiner(ctx, require, st, vms, minerAddr, minerOwner)
 
 	msg1 := types.NewMessage(fromAddr, toAddr, 0, types.NewAttoFILFromFIL(501), "", nil)
@@ -254,8 +254,8 @@ func TestProcessBlockBadMsgSig(t *testing.T) {
 	})
 
 	vms := th.VMStorage()
-	minerAddr := address.MakeTestAddress("miner")
-	minerOwner := address.MakeTestAddress("mo")
+	minerAddr := address.NewActorAddress([]byte("miner"))
+	minerOwner := address.NewActorAddress([]byte("mo"))
 	stCid, _ := mustCreateMiner(ctx, require, st, vms, minerAddr, minerOwner)
 
 	msg := types.NewMessage(fromAddr, toAddr, 0, types.NewAttoFILFromFIL(550), "", nil)
