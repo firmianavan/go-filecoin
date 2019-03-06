@@ -59,14 +59,14 @@ type clientNode interface {
 type clientPorcelainAPI interface {
 	ChainBlockHeight(ctx context.Context) (*types.BlockHeight, error)
 	CreatePayments(ctx context.Context, config porcelain.CreatePaymentsParams) (*porcelain.CreatePaymentsReturn, error)
+	DealGet(cid.Cid) *storagedeal.Deal
+	DealPut(*storagedeal.Deal) error
+	DealsLs() ([]*storagedeal.Deal, error)
 	GetAndMaybeSetDefaultSenderAddress() (address.Address, error)
 	MinerGetAsk(ctx context.Context, minerAddr address.Address, askID uint64) (miner.Ask, error)
 	MinerGetOwnerAddress(ctx context.Context, minerAddr address.Address) (address.Address, error)
 	MinerGetPeerID(ctx context.Context, minerAddr address.Address) (peer.ID, error)
-	DealsLs() ([]*storagedeal.Deal, error)
-	DealGet(cid.Cid) *storagedeal.Deal
-	DealPut(*storagedeal.Deal) error
-	types.Signer
+	types.Signers
 }
 
 // Client is used to make deals directly with storage miners.

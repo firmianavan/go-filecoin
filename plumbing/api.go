@@ -48,6 +48,7 @@ type API struct {
 type APIDeps struct {
 	Chain        chain.ReadStore
 	Config       *cfg.Config
+	Deals        *strgdls.Store
 	MsgPool      *core.MessagePool
 	MsgPreviewer *msg.Previewer
 	MsgQueryer   *msg.Queryer
@@ -56,7 +57,6 @@ type APIDeps struct {
 	Network      *ntwk.Network
 	SigGetter    *mthdsig.Getter
 	Wallet       *wallet.Wallet
-	Deals        *strgdls.Store
 }
 
 // New constructs a new instance of the API.
