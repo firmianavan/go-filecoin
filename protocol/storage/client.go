@@ -264,7 +264,7 @@ func (smc *Client) isMaybeDupDeal(p *storagedeal.Proposal) bool {
 func (smc *Client) LoadVouchersForDeal(dealCid cid.Cid) ([]*paymentbroker.PaymentVoucher, error) {
 	storageDeal := smc.api.DealGet(dealCid)
 	if storageDeal == nil {
-		return []*paymentbroker.PaymentVoucher{}, fmt.Errorf("could not retriee deal with proposal CID %s", dealCid)
+		return []*paymentbroker.PaymentVoucher{}, fmt.Errorf("could not retrieve deal with proposal CID %s", dealCid)
 	}
 	return storageDeal.Proposal.Payment.Vouchers, nil
 }
