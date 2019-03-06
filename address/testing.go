@@ -1,6 +1,8 @@
 package address
 
-import "fmt"
+import (
+	"fmt"
+)
 
 // NewForTestGetter returns a closure that returns an address unique to that invocation.
 // The address is unique wrt the closure returned, not globally.
@@ -9,6 +11,6 @@ func NewForTestGetter() func() Address {
 	return func() Address {
 		s := fmt.Sprintf("address%d", i)
 		i++
-		return MakeTestAddress(s)
+		return NewActorAddress([]byte(s))
 	}
 }

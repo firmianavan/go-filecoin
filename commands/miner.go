@@ -486,11 +486,7 @@ var minerOwnerCmd = &cmds.Command{
 		if err != nil {
 			return err
 		}
-		ownerAddr, err := address.NewFromBytes(bytes[0])
-		if err != nil {
-			return err
-		}
-
+		ownerAddr := address.NewFromBytes(bytes[0])
 		return re.Emit(&ownerAddr)
 	},
 	Arguments: []cmdkit.Argument{
