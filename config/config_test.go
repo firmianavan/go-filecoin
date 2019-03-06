@@ -307,7 +307,7 @@ path = "mushroom-mushroom"}`
 		//assert.Contains(err.Error(), "invalid")
 
 		err = cfg.Set("wallet.defaultAddress", "corruptandtooshort")
-		assert.Contains(err.Error(), "invalid character")
+		assert.Contains(err.Error(), "invalid network prefix")
 	})
 
 	t.Run("setting leaves does not interfere with neighboring leaves", func(t *testing.T) {
